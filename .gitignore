@@ -1,0 +1,10 @@
+#Archivo para ignorar las terminaciones de latex que surgen en la compilación
+
+.DS_Store
+*.out
+*.lof
+*.aux
+*.log
+*.synctex.gz
+*.toc
+*.pdf
