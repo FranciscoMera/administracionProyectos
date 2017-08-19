@@ -1,0 +1,90 @@
+%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{bookTheme}[2015/01/21, v1.0 Plantilla para administracion de proyectos]
+
+\usepackage[Sonny]{fncychap}
+\usepackage{fancyhdr}
+\usepackage{cmbright}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[table]{xcolor}
+\usepackage{longtable}
+\usepackage{multicol}
+\usepackage[hmargin=2cm,vmargin=3.5cm, head=2cm]{geometry}
+\usepackage[colorlinks=true,linkcolor=titleChapter]{hyperref}
+\usepackage{graphicx}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+
+
+\definecolor{titleChapter}{HTML}{000081}
+\definecolor{sectionChapter}{HTML}{810000}
+
+
+%Bullet en el itemize
+\renewcommand{\labelitemi}{\color{sectionChapter}{\textbullet}}
+
+
+%Secciones
+\newcommand{\varSection}[1]{}
+\let\varSection = \section
+
+\renewcommand{\section}[1]{%
+	{\raggedright\Large\sf\color{sectionChapter}\varSection{#1}}
+}
+
+%Variable del capitulo
+
+%\ChTitleVar{\Large\sf\color{titleChapter}}
+\ChNameVar{\Large\sf\color{titleChapter}}
+
+
+%------ProjectCharter
+
+\newcommand{\makeProjectCharter}{%	
+	{\centering}
+	\begin{center}\begin{longtable}[hbtp!]{|p {0.2\textwidth} |p {0.75\textwidth} |}%
+			\hline%
+			\rowcolor{sectionChapter}
+			\multicolumn{2}{|c|}{\huge\bf \color{white}{Project Charter}}\\ \hline%
+			\endhead%
+			\bf Fecha del proyecto & \today \\ %
+			\hline
+			\bf Alcance: & \begin{Titemize}%
+				\Titem Asi
+			\end{Titemize}\\%
+			\hline
+		\end{longtable}%
+	\end{center}
+	}
+
+
+
+%-- Proyecto página de inicio
+
+\newcommand{\varTitle}[1]{}
+\let\varTitle=\title
+\renewcommand{\title}[1]{%
+	\varTitle{{\Huge\color{titleChapter}#1}%
+	\\{\LARGE \color{sectionChapter}}~{}\bigskip\\\color{sectionChapter}\rule{\textwidth}{1mm}}}
+
+
+
+
+%Titemize
+
+\newenvironment{Titemize}{\vspace{-.8em}}{\vspace{0em}}
+
+%==========================================================================
+% use \Titem Bla bla bla
+%==========================================================================
+\newcommand{\Titem}[1][\textbullet]{%
+	\par{ \color{sectionChapter}{#1} }%
+}
+
+%\newcommand{\cdtInstrucciones}[1]{ {\em\color{Gray} {#1}} }
+
+\newcommand{\cdtEmpty}{\hspace{10pt}}
