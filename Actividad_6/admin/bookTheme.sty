@@ -12,16 +12,23 @@
 \usepackage{longtable}
 \usepackage{multicol}
 \usepackage[hmargin=2cm,vmargin=3.5cm, head=2cm]{geometry}
-\usepackage[colorlinks=true,linkcolor=titleChapter]{hyperref}
+\usepackage{hyperref}
 \usepackage{graphicx}
-
+\usepackage{wallpaper}
+\usepackage{marvosym}
 
 \pagestyle{fancy}
 \fancyhf{}
 
+\hypersetup{
+	colorlinks=true,
+	linkcolor=titleChapter,
+	urlcolor=titleChapter,
+}
 
-\definecolor{titleChapter}{HTML}{000081}
-\definecolor{sectionChapter}{HTML}{810000}
+
+\definecolor{titleChapter}{HTML}{0000AA}
+\definecolor{sectionChapter}{HTML}{AA0000}
 
 
 %Bullet en el itemize
@@ -38,7 +45,7 @@
 
 %Variable del capitulo
 
-%\ChTitleVar{\Large\sf\color{titleChapter}}
+\ChTitleVar{\Large\sf\color{titleChapter}}
 \ChNameVar{\Large\sf\color{titleChapter}}
 
 
@@ -54,38 +61,47 @@
 			\endhead%
 			\bf Fecha del proyecto & \today \\ %
 			\hline
-			\bf Nombre del proyecto: & \\ %
+			\bf Nombre del proyecto: & Persona Card\\ %
 			\hline
-			\bf Descripción del proyecto: & \\ %
-			\hline
-			\bf Patrocinador: & \\ %
+			\bf Descripción del proyecto: & Módulo interconectable con dispositivos que permite realizar transacciones bancarias, consulta de información personal y localización.\\ %
+			%\hline
+			%\bf Patrocinador: & \\ %
 			\hline
 			\bf Líder del proyecto: & \\%
 			\hline
-			\bf Propósito del proyecto : & \\ %
+			\bf Propósito del proyecto : & \begin{Titemize}
+				\Titem Proporcionar un mecanismo para agilizar transacciones bancarias para aquellas personas que manejan múltiples cuentas de diferentes sucursales.
+				\Titem Proporcionar un mecanismo que permita manejar la información personal de un cliente.	
+				\end{Titemize}\\ %
+			%\hline
+			%\bf Justificación del proyecto: &  \\ %
 			\hline
-			\bf Justificación del proyecto: & \\ %
-			\hline
-			\bf Recursos materiales: & \\%
-			\hline
-			\bf Personal y  contacto: & \\%			
+			%\bf Recursos materiales: & \\%
+			%\hline
+			\bf Personal y  contacto: & \begin{Titemize}
+				\Titem Alberto: \Letter\url{jvnvfv@gmail.com} \Telefon 5577382831
+				\Titem Michelle: \Letter\url{Jnvddfv@gmail.com} \Telefon45673672
+				\Titem Yesenia: \Letter\url{fdbdsg@gmail.com} \Telefon 5754555367
+				\Titem Cristian: \Letter\url{vdbdtbdtba@gmail.com} \Telefon46452642572
+				\Titem Francisco: \Letter\url{fcomera.ipn@gmail.com} \Telefon5577531553
+			\end{Titemize}\\%			
 			\hline
 			\bf Requisitos del producto: & \\%
 			\hline
 			\bf Requisitos del proyecto: & \\%
 			\hline
-			\bf Entregables: & \begin{Titemize}
-				\Titem C1-DP
-				\Titem C2-ADPP
-				\Titem C3-PYP
-			\end{Titemize}\\%
-			\hline
-			\bf Objetivos del proyecto: & \\%
-			\hline
-			\bf Criterios de autorización: & \\%
-			\hline
-			\bf Riesgos : & \\%
-			\hline
+			%\bf Entregables: & \begin{Titemize}
+			%	\Titem C1-DP
+			%	\Titem C2-ADPP
+			%	\Titem C3-PYP
+			%\end{Titemize}\\%
+			%\hline
+			%\bf Objetivos del proyecto: & \\%
+			%\hline
+			%\bf Criterios de autorización: & \\%
+			%\hline
+			%\bf Riesgos : & \\%
+			%\hline
 		\end{longtable}%
 	\end{center}
 	}
@@ -98,8 +114,31 @@
 \let\varTitle=\title
 \renewcommand{\title}[1]{%
 	\varTitle{{\Huge\color{titleChapter}#1}%
-	\\{\LARGE \color{sectionChapter}}~{}\bigskip\\\color{sectionChapter}\rule{\textwidth}{1mm}}}
+	\\{\LARGE \color{sectionChapter}\varSubTitle}~{}\bigskip\\\color{sectionChapter}\rule{\textwidth}{1mm}}}
+	
+\newcommand{\varSubTitle}{}
+\newcommand{\subtitle}[1]{\renewcommand{\varSubTitle}{#1}}
 
+
+\newcommand{\varLider}[1]{#1}
+\newcommand{\lider}[1]{\renewcommand{\varLider}{#1}}
+
+\newcommand{\varAprueba}[1]{#1}
+\newcommand{\aprueba}[1]{\renewcommand{\varAprueba}{#1}}
+
+\newcommand{\makeFirmas}{
+		\begin{longtable}{| p{0.35\textwidth} | p{0.35\textwidth} |}%
+		
+			\hline
+			\rowcolor{sectionChapter}\multicolumn{2}{c}{\bf\color{white}{Firmas}}\\
+			\hline
+			\endhead
+			\begin{center}\bf Líder del Proyecto\end{center}&\begin{center}\bf Aprueba\end{center}\\
+			&\\ &\\
+			\hrule & \hrule\\
+			\begin{center}\varLider\end{center}&\begin{center}\varAprueba\end{center}\\
+			\hline
+			\end{longtable}}
 
 
 
